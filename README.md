@@ -39,7 +39,7 @@ If you are unsure about something regarding your new character you will can post
 
 ### Wireframe
 
-![ERD Tables](/images/WireframeJD.JPG)
+![Wireframe](/images/WireframeJD.JPG)
 
 ### User Stories
 
