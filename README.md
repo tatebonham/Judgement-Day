@@ -14,7 +14,7 @@ If you are unsure about something regarding your new character you will can post
 
 ### ERD
 
-![ERD Tables](/images/ERD.JPG)
+![ERD Tables](/images/ERDJD.JPG)
 
 ### Restful Routing Charts
 
