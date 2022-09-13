@@ -41,6 +41,16 @@ If you are unsure about something regarding your new character you will can post
 
 ![ERD Tables](/images/WireframeJD.JPG)
 
+### User Stories
+
+- as a user I would like to make posts and show that my user made it
+- as a user I would like to see the comments made on that post and which user made them
+- as a user I would like to see others posts and which user made them
+- as a user I would like to see the comments made on that post and which user made them
+- as a user I would like a place to research class information to help making a choice or checking suggestions out easy
+- as a user I would like a place to research race information to help making a choice or checking suggestions out easy
+- as a user I would like to be able to create a new account and login to that account next time I visit
+
 ## MVP Goals
 
 - Set up Sequelize Config
