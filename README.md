@@ -1,4 +1,4 @@
-# judgement-day
+# Judgement-Day
 
 Unsure about your new DnD character? Whether it's the name or the stats that have you worried, have no fear! Welcome to Judgement Day, the social media forum to see what other players think about your new character's attributes.
 
@@ -23,8 +23,7 @@ If you are unsure about something regarding your new character you will can post
 | Get                  | /                  | Read    | Render home page ejs                       |       |
 | Get                  | /users/new         | Read    | Show new user form                         |       |
 | Get                  | /users/login       | Read    | Show login user form                       |       |
-| Post                 | /                  | Create  | Redirect posts                             |       |
-| Post                 | /                  | Create  | Redirect posts                             |       |
+| Post                 | /                  | Create  | Create new user then redirect to posts     |       |
 | Get                  | /classes           | Read    | Get all Class API Data on one page         |       |
 | Get                  | /races             | Read    | Get all Race API Data on one page          |       |
 | Get                  | /posts             | Read    | Get all posts on one page                  |       |
