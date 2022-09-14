@@ -25,7 +25,7 @@ app.get('/races', (req, res)=>{
     res.render('info/races.ejs')
 })
 
-// app.use('/posts', require('./controllers/posts'))
-// app.use('/users', require('./controllers/users'))
+app.use('/posts', require('./controllers/posts'))
+app.use('/users', require('./controllers/users'))
 
 app.listen(process.env.PORT || 3000, ()=>{console.log('Port working')})
