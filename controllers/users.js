@@ -8,7 +8,12 @@ router.get('/new',(req, res)=>{
     res.render('users/new.ejs')
 })
 
+router.get('/login', (req, res)=>{
+    res.render('users/login.ejs')
+})
 
-
+router.get('/posts', (req, res)=>{
+    res.render('users/posts.ejs')
+})
 
 module.exports = router
