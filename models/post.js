@@ -10,8 +10,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      post.hasMany(comment)
-      post.belongsTo(user)
+      models.post.hasMany(models.comment)
+      models.post.belongsTo(models.user)
       // define association here
     }
   }
