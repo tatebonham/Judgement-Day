@@ -13,17 +13,19 @@ app.use(express.urlencoded({extended: false}))
 app.use(ejsLayouts)
 app.use(require('morgan')('dev'))
 
+// Get /
 app.get('/', (req, res)=>{
     res.render('home.ejs')
 })
-
+// Get /classes
 app.get('/classes', (req, res)=>{
     res.render('info/classes.ejs')
 })
-
+// Get /races
 app.get('/races', (req, res)=>{
     res.render('info/races.ejs')
 })
+
 
 app.use('/posts', require('./controllers/posts'))
 app.use('/users', require('./controllers/users'))
