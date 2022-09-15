@@ -24,6 +24,7 @@ If you are unsure about something regarding your new character you will can post
 | Get                  | /users/new      | Read    | Show new user form                         |       |
 | Get                  | /users/login    | Read    | Show login user form                       |       |
 | Get                  | /users/posts    | Read    | Show users posts only                      |       |
+| Get                  | /users/logout   | Read    | Clear cookies and redirect to home         |       |
 | Post                 | /               | Create  | Create new user then redirect to posts     |       |
 | Get                  | /classes        | Read    | Get all Class API Data on one page         |       |
 | Get                  | /races          | Read    | Get all Race API Data on one page          |       |

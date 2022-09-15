@@ -4,6 +4,8 @@ const ejsLayouts = require('express-ejs-layouts')
 const axios = require('axios')
 const app = express()
 const db = require('./models')
+const crypto = require('crypto-js')
+const cookieParser = require('cookie-parser')
 
 app.set('view engine', 'ejs')
 
@@ -12,6 +14,19 @@ app.use(express.static('static'))
 app.use(express.urlencoded({extended: false}))
 app.use(ejsLayouts)
 app.use(require('morgan')('dev'))
+app.use(cookieParser())
+app.use(async (req, res, next)=>{
+    res.locals.myData = 'hello, fellow route'
+    if(req.cookies.userId) {
+        const decryptedId = crypto.AES.decrypt(req.cookies.userId.toString(), process.env.ENC_SECRET)
+        const decryptedIdString = decryptedId.toString(crypto.enc.Utf8)
+        const user = await db.user.findByPk(decryptedIdString)
+        res.locals.user = user
+    }else {
+        res.locals.user = null
+    }
+    next()
+})
 
 // Get /
 app.get('/', (req, res)=>{
@@ -33,7 +48,6 @@ app.get('/races', async (req, res)=>{
     try{
         const url =  'https://www.dnd5eapi.co/api/races'
         const fetch = await axios.get(url)
-        console.log(fetch)
     
         res.render('info/races.ejs',{races: fetch.data.results})
     }catch(err){

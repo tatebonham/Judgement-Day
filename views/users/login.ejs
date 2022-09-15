@@ -1,1 +1,15 @@
 <h2>Login Users Page</h2>
+
+<% if(message){ %>
+    <p><%= message %></p>
+<% } %>
+
+<form action="/users/login" method="POST">
+    <label for="email">Email: </label>
+    <input id="email" type="email" name="email" require>
+
+    <label for="password">Password: </label>
+    <input id="password" type="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
