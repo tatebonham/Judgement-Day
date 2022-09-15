@@ -27,8 +27,14 @@ router.get('/new', async (req, res)=>{
 // Post posts/  redirect to posts/
 router.post('/', async (req, res)=>{
     try{
-        res.send('creating post')
-
+        const newPost = await db.post.create({
+            name: req.body.name,
+            class: req.body.class,
+            race: req.body.race,
+            content: req.body.content,
+            userId: req.body.userId
+        })
+        res.redirect('/')
     } catch(err){
         console.warn(err)
     }
