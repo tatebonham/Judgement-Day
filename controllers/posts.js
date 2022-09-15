@@ -45,7 +45,7 @@ router.post('/', async (req, res)=>{
             content: req.body.content,
             userId: req.body.userId
         })
-        res.redirect('/')
+        res.redirect('/posts')
     } catch(err){
         console.warn(err)
     }
