@@ -1,1 +1,29 @@
 <h2>Main Posts Page</h2>
+
+
+
+<div class="row">
+    <div class="col-sm-8">
+      <div class="row">
+        <div class="col-xs-12">
+          <!-- <img class="hero" src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Seattle_Kerry_Park_Skyline.jpg"> -->
+        </div>
+      </div>
+  
+    <% for(let i = 0; i < posts.length; i++ ){ %>
+        <div class="container border border-2">
+          <h2>
+            <p><%= posts[i].name %></p>
+            <small>by <%= posts[i].user.username %></small>
+          </h2>
+        </div>
+    <% } %>
+  
+    </div>
+    <div class="col-sm-4">
+      <h2>About</h2>
+      <p>BlogPulse is an up-and-coming player in the global media market,
+      providing user-generated content across all topics.</p>
+    </div>
+  </div>
+  

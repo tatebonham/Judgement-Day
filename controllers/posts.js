@@ -4,8 +4,19 @@ const db = require('../models')
 const axios = require('axios')
 
 // Get posts/
-router.get('/', (req, res)=>{
-    res.render('posts/main.ejs')
+router.get('/', async (req, res)=>{
+    try{
+        const posts = await db.post.findAll({
+            include: [db.user]
+        })
+
+        res.render('posts/main.ejs', {
+            posts: posts
+        })
+    }catch(err){
+        console.warn(err)
+    }
+    
 })
 // Get posts/new
 router.get('/new', async (req, res)=>{
