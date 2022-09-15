@@ -1,2 +1,21 @@
 <h2> Show User's Posts Page</h2>
 <h2>Welcome to your profile <%= user.username %>! 🎉 </h2>
+
+
+<div class="row">
+    <div class="col-sm-10">
+      <div class="row">
+      </div>
+  
+    <% for(let i = 0; i < posts.length; i++ ){ %>
+        <div class="container border border-2 rounded-3">
+        <small><%= user.username %></small>
+        <h4>
+            <p><%= posts[i].name %> the <%= posts[i].race %> <%= posts[i].class %></p>
+        </h4>
+        <p class="container"><%= posts[i].content %></p>
+        </div>
+    <% } %>
+  
+    </div>
+  </div>

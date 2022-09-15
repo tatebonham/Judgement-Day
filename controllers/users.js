@@ -3,6 +3,7 @@ const router = express.Router()
 const db = require('../models')
 const crypto = require('crypto-js')
 const bcrypt = require('bcrypt')
+const axios = require('axios')
 
 // Get users/new
 router.get('/new',(req, res)=>{
@@ -78,16 +79,34 @@ router.get('/logout', (req, res)=>{
     res.redirect('/')
 })
 // Get users/posts
-router.get('/posts', (req, res)=>{
-    console.log(res.locals.user)
-    if(!res.locals.user){
-        res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+router.get('/posts', async (req, res)=>{
+    try{
+        if(!res.locals.user){
+            res.redirect('/users/login?message=You must authenticate before you are authorized to view this resource.')
+    
+        } else {
+            const urlClass =  'https://www.dnd5eapi.co/api/classes'
+            const classes = await axios.get(urlClass)
+            const urlRace =  'https://www.dnd5eapi.co/api/races'
+            const races = await axios.get(urlRace)
 
-    } else {
-        res.render('users/posts.ejs', {
-            user: res.locals.user
-        })
+            const posts = await db.post.findAll({
+                where: {
+                    userId: res.locals.user.id
+                }
+            })
+    
+            res.render('users/posts.ejs', {
+                posts: posts,
+                user: res.locals.user,
+                classes: classes.data.results,
+                races: races.data.results
+            })
+        }
+    }catch(err){
+        console.warn(err)
     }
+    console.log(res.locals.user)
 })
 
 
