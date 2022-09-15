@@ -1,1 +1,42 @@
-<h2>New Posts Page</h2>
+<h1>Create a new post</h1>
+
+
+<form action="/posts" method="POST">
+  <div class="form-group">
+    <label for="name">Name: </label>
+    <input type="text" class="form-control" id="name" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="race">Race: </label>
+    <select name="race" id="race" class="form-control" required>
+      <option value="" disabled selected hidden>Select...</option>
+      <% for(let i = 0; i<races.length; i++) { %>
+        <option value="<%= races[i].name %>"><%= races[i].name %></option>
+      <% } %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="class">Class: </label>
+    <select name="class" id="class" class="form-control" required>
+      <option value="" disabled selected hidden>Select...</option>
+      <% for(let i = 0; i<classes.length; i++) { %>
+        <option value="<%= classes[i].name %>"><%= classes[i].name %></option>
+      <% } %>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea type="text" class="form-control" id="content" name="content" required></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="user"></label>
+    <input value="<%= user.id %>" name="userId">
+  </div>
+  
+  <p>If your name doesn't show up, please <a href="">sign up to be an author.</a></p>
+  <input type="submit" class="btn btn-primary">
+</form>

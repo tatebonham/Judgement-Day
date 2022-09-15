@@ -1,18 +1,37 @@
 const express = require('express')
 const router = express.Router()
 const db = require('../models')
+const axios = require('axios')
 
 // Get posts/
 router.get('/', (req, res)=>{
     res.render('posts/main.ejs')
 })
 // Get posts/new
-router.get('/new', (req, res)=>{
-    res.render('posts/new.ejs')
+router.get('/new', async (req, res)=>{
+    try{
+        const urlClass =  'https://www.dnd5eapi.co/api/classes'
+        const classes = await axios.get(urlClass)
+        const urlRace =  'https://www.dnd5eapi.co/api/races'
+        const races = await axios.get(urlRace)
+
+        res.render('posts/new.ejs', {
+            user: res.locals.user,
+            classes: classes.data.results,
+            races: races.data.results
+        })
+    } catch(err){
+        console.warn(err)
+    }
 })
 // Post posts/  redirect to posts/
-router.post('/', (req, res)=>{
-    res.send('creating post')
+router.post('/', async (req, res)=>{
+    try{
+        res.send('creating post')
+
+    } catch(err){
+        console.warn(err)
+    }
 })
 // Get posts/:id
 router.get('/:id', (req, res)=>{
