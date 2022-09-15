@@ -9,6 +9,9 @@ router.get('/new',(req, res)=>{
     res.render('users/new.ejs')
 })
 // Post users/  redirect to users/posts
+router.post('/', (req, res)=>{
+    res.send('created user')
+})
 
 // Get users/login
 router.get('/login', (req, res)=>{

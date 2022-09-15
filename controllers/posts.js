@@ -11,7 +11,9 @@ router.get('/new', (req, res)=>{
     res.render('posts/new.ejs')
 })
 // Post posts/  redirect to posts/
-
+router.post('/', (req, res)=>{
+    res.send('creating post')
+})
 // Get posts/:id
 router.get('/:id', (req, res)=>{
     res.render('posts/show.ejs')
@@ -21,12 +23,20 @@ router.get('/edit/:id', (req, res)=>{
     res.render('posts/edit.ejs')
 })
 // Put posts/:id  redirect to posts/:id
-
+router.put('/:id', (req, res)=>{
+    res.send('editing post')
+})
 // Delete posts/:id
-
+router.delete('/:id', (req, res)=>{
+    res.send('deleting post')
+})
 // Post /posts/:id  create new comment at posts id
-
+router.post('/:id', (req, res)=>{
+    res.send('creating comment')
+})
 // Delete /posts/:id  Delete comment on posts id
-
+router.delete('/:id', (req, res)=>{
+    res.send('deleting comment')
+})
 
 module.exports = router

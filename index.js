@@ -18,12 +18,28 @@ app.get('/', (req, res)=>{
     res.render('home.ejs')
 })
 // Get /classes
-app.get('/classes', (req, res)=>{
-    res.render('info/classes.ejs')
+app.get('/classes', async (req, res)=>{
+    try{
+        const url =  'https://www.dnd5eapi.co/api/classes'
+        const fetch = await axios.get(url)
+    
+        res.render('info/classes.ejs',{classes: fetch.data.results})
+    }catch(err){
+        console.warn(err)
+    }
 })
 // Get /races
-app.get('/races', (req, res)=>{
-    res.render('info/races.ejs')
+app.get('/races', async (req, res)=>{
+    try{
+        const url =  'https://www.dnd5eapi.co/api/races'
+        const fetch = await axios.get(url)
+        console.log(fetch)
+    
+        res.render('info/races.ejs',{races: fetch.data.results})
+    }catch(err){
+        console.warn(err)
+    }
+    
 })
 
 
