@@ -3,6 +3,7 @@ const router = express.Router()
 const db = require('../models')
 const axios = require('axios')
 
+
 // Get posts/
 router.get('/', async (req, res)=>{
     try{
@@ -51,15 +52,53 @@ router.post('/', async (req, res)=>{
     }
 })
 // Get posts/:id
-router.get('/:id', (req, res)=>{
+router.get('/:id', async (req, res)=>{
+    try{
+      const onePost = await db.post.findOne({
+        where:{
+            id: req.params.id
+        }, 
+        include: [db.user, db.comment]
+      })
+
+        res.render('posts/show.ejs',{
+            onePost: onePost
+        })
+    } catch(err){
+        console.warn(err)
+    }
+
     res.render('posts/show.ejs')
 })
 // Get posts/edit/:id
-router.get('/edit/:id', (req, res)=>{
-    res.render('posts/edit.ejs')
+router.get('/edit/:id', async (req, res)=>{
+    try{
+        const urlClass =  'https://www.dnd5eapi.co/api/classes'
+        const classes = await axios.get(urlClass)
+        const urlRace =  'https://www.dnd5eapi.co/api/races'
+        const races = await axios.get(urlRace)
+        const onePost = await db.post.findOne({
+            where:{
+                id: req.params.id
+            }, 
+            include: [db.user]
+          })
+
+        res.render('posts/edit.ejs', {
+            onePost: onePost,
+            postId:  req.params.id,
+            user: res.locals.user,
+            classes: classes.data.results,
+            races: races.data.results
+        })
+    } catch(err){
+        console.warn(err)
+    }
+
 })
 // Put posts/:id  redirect to posts/:id
 router.put('/:id', (req, res)=>{
+
     res.send('editing post')
 })
 // Delete posts/:id

@@ -1,1 +1,18 @@
 <h2>Show Specific Posts Page</h2>
+
+<a href="/posts/new">Create a new post</a>
+<div class="row">
+    <div class="col-sm-10">
+      <div class="row">
+      </div>
+  
+        <div class="container border border-2 rounded-3">
+        <small><%= user.username %></small>
+        <h4>
+            <p><%= onePost.name %> the <%= onePost.race %> <%= onePost.class %></p>
+        </h4>
+        <p class="container"><%= onePost.content %></p>
+        </div>  
+        <a href="/posts/edit/<%= onePost.id %>">Edit Post</a>
+    </div>
+  </div>

@@ -6,10 +6,12 @@ const app = express()
 const db = require('./models')
 const crypto = require('crypto-js')
 const cookieParser = require('cookie-parser')
+const methodOverride = require('method-override')
 
 app.set('view engine', 'ejs')
 
 
+app.use(methodOverride('X-HTTP-Method-Override'))
 app.use(express.static('static'))
 app.use(express.urlencoded({extended: false}))
 app.use(ejsLayouts)

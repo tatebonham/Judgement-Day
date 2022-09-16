@@ -1,2 +1,41 @@
 <h2>Edit Posts Page</h2>
 
+<form method="POST" action="/posts/<%= postId %>/?_method=PUT">
+  <div class="form-group">
+    <label for="name">Name: </label>
+    <input value="<%=onePost.name%>" type="text" class="form-control" id="name" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="race">Race: </label>
+    <select name="race" id="race" class="form-control" required>
+      <option value="<%=onePost.race%>" disabled selected hidden><%=onePost.race%></option>
+      <% for(let i = 0; i<races.length; i++) { %>
+        <option value="<%= races[i].name %>"><%= races[i].name %></option>
+      <% } %>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="class">Class: </label>
+    <select name="class" id="class" class="form-control" required>
+      <option value="<%=onePost.class%>" disabled selected hidden><%=onePost.class%></option>
+      <% for(let i = 0; i<classes.length; i++) { %>
+        <option value="<%= classes[i].name %>"><%= classes[i].name %></option>
+      <% } %>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="content">Content</label>
+    <textarea type="text" class="form-control" id="content" name="content" required><%=onePost.content%></textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="user"></label>
+    <input value="<%=onePost.userId%>" name="userId">
+  </div>
+  
+  <p>If your name doesn't show up, please <a href="">sign up to be an author.</a></p>
+  <input type="submit" class="btn btn-primary">
+</form>
