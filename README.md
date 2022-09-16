@@ -18,25 +18,25 @@ If you are unsure about something regarding your new character you will can post
 
 ### Restful Routing Charts
 
-| HTTP METHOD (_Verb_) | URL (_Nouns_)   | CRUD    | Response                                   | Notes |
-| -------------------- | --------------- | ------- | ------------------------------------------ | ----- |
-| Get                  | /               | Read    | Render home page ejs                       |       |
-| Get                  | /users/new      | Read    | Show new user form                         |       |
-| Get                  | /users/login    | Read    | Show login user form                       |       |
-| Get                  | /users/posts    | Read    | Show users posts only                      |       |
-| Get                  | /users/logout   | Read    | Clear cookies and redirect to home         |       |
-| Post                 | /               | Create  | Create new user then redirect to posts     |       |
-| Get                  | /classes        | Read    | Get all Class API Data on one page         |       |
-| Get                  | /races          | Read    | Get all Race API Data on one page          |       |
-| Get                  | /posts          | Read    | Get all posts on one page                  |       |
-| Get                  | /posts/new      | Read    | Show new post form                         |       |
-| Post                 | /posts          | Create  | Create a new post and redirect to posts    |       |
-| Get                  | /posts/:id      | Read    | Get specific posts page by id and comments |       |
-| Get                  | /posts/edit/:id | Read    | Show edit post form                        |       |
-| Put                  | /posts/edit/:id | Update  | Edit the current posts id                  |       |
-| Destroy              | /posts/:id      | Destroy | Get genres of that book by its book_id     |       |
-| Post                 | /posts/:id      | Create  | Create new comment on the posts id         |       |
-| Destroy              | /posts/:id      | Destroy | Delete comment on the posts id             |       |
+| HTTP METHOD (_Verb_) | URL (_Nouns_)       | CRUD    | Response                                   | Notes |
+| -------------------- | ------------------- | ------- | ------------------------------------------ | ----- |
+| Get                  | /                   | Read    | Render home page ejs                       |       |
+| Get                  | /users/new          | Read    | Show new user form                         |       |
+| Get                  | /users/login        | Read    | Show login user form                       |       |
+| Get                  | /users/posts        | Read    | Show users posts only                      |       |
+| Get                  | /users/logout       | Read    | Clear cookies and redirect to home         |       |
+| Post                 | /                   | Create  | Create new user then redirect to posts     |       |
+| Get                  | /classes            | Read    | Get all Class API Data on one page         |       |
+| Get                  | /races              | Read    | Get all Race API Data on one page          |       |
+| Get                  | /posts              | Read    | Get all posts on one page                  |       |
+| Get                  | /posts/new          | Read    | Show new post form                         |       |
+| Post                 | /posts              | Create  | Create a new post and redirect to posts    |       |
+| Get                  | /posts/:id          | Read    | Get specific posts page by id and comments |       |
+| Get                  | /posts/edit/:id     | Read    | Show edit post form                        |       |
+| Put                  | /posts/edit/:id     | Update  | Edit the current posts id                  |       |
+| Destroy              | /posts/:id          | Destroy | Delete current post id                     |       |
+| Post                 | /posts/:id/comments | Create  | Create new comment on the posts id         |       |
+| Destroy              | /posts/:id/comments | Destroy | Delete comment on the posts id             |       |
 
 ### Wireframe
 
