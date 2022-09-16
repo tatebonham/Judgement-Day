@@ -63,7 +63,9 @@ router.get('/:id', async (req, res)=>{
       })
 
         res.render('posts/show.ejs',{
-            onePost: onePost
+            onePost: onePost,
+            postId: req.params.id,
+            userId: res.locals.user.id
         })
     } catch(err){
         console.warn(err)
@@ -116,12 +118,35 @@ router.put('/:id', async (req, res)=>{
     }
 })
 // Delete posts/:id
-router.delete('/:id', (req, res)=>{
-    res.send('deleting post')
+router.delete('/:id', async (req, res)=>{
+    try{
+        const deleteRow = await db.post.destroy({
+            where:{
+                id: req.params.id
+            }
+        })
+        const deleteComments = await db.comment.destroy({
+            where:{
+                postId: req.params.id
+            }
+        })
+        res.redirect('/posts')
+    }catch(err){
+        console.warn(err)
+    }
 })
 // Post /posts/:id  create new comment at posts id
-router.post('/:id', (req, res)=>{
-    res.send('creating comment')
+router.post('/:id/comments', async (req, res)=>{
+    try{
+        const newComment = await db.comment.create({
+          content: req.body.content,
+          userId: req.body.userId,
+          postId: req.body.postId
+        })
+        res.redirect(`/posts/${req.params.id}`)
+    } catch(err){
+        console.warn(err)
+    }
 })
 // Delete /posts/:id  Delete comment on posts id
 router.delete('/:id', (req, res)=>{

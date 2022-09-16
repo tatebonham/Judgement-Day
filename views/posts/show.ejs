@@ -7,12 +7,38 @@
       </div>
   
         <div class="container border border-2 rounded-3">
-        <small><%= user.username %></small>
+        <small><%= onePost.user.username %></small>
         <h4>
             <p><%= onePost.name %> the <%= onePost.race %> <%= onePost.class %></p>
         </h4>
         <p class="container"><%= onePost.content %></p>
         </div>  
-        <a href="/posts/edit/<%= onePost.id %>">Edit Post</a>
+        <a href="/posts/edit/<%= onePost.id %>" <% if(user.id !== onePost.userId){ %>
+          <%= 'hidden' %>
+      <% } %> >Edit Post</a>
+        <form method="POST" action="/posts/<%= postId %>/?_method=DELETE">
+          <input <% if(user.id !== onePost.userId){ %>
+              <%= 'hidden' %>
+          <% } %> type="submit" value="Delete">
+        </form>
     </div>
+    
   </div>
+  <h4>(<%= onePost.comments.length %>)Comments:</h4>
+  <form method="POST" action="/posts/<%=onePost.id%>/comments" >
+    <!-- <label for="name">Name:</label>
+    <input type="text" id="name" name="name"> -->
+
+    <label for="content">Comment:</label>
+    <input type="text" class="form-control" id="content" name="content">
+    <input  value="<%= userId %>" name="userId">
+    <input  value="<%= postId %>" name="postId">
+    <button type="submit">Post</button>
+  </form>
+  </br>
+
+  
+
+  <% onePost.comments.forEach(comment =>{ %>
+    <p><%= comment.content %>  <small> by <%= comment.userId %></small></p>
+  <% }) %> 
