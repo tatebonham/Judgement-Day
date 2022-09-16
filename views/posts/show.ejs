@@ -26,9 +26,6 @@
   </div>
   <h4>(<%= onePost.comments.length %>)Comments:</h4>
   <form method="POST" action="/posts/<%=onePost.id%>/comments" >
-    <!-- <label for="name">Name:</label>
-    <input type="text" id="name" name="name"> -->
-
     <label for="content">Comment:</label>
     <input type="text" class="form-control" id="content" name="content">
     <input  value="<%= userId %>" name="userId">
@@ -41,4 +38,10 @@
 
   <% onePost.comments.forEach(comment =>{ %>
     <p><%= comment.content %>  <small> by <%= comment.userId %></small></p>
+    <form method="POST" action="/posts/<%= onePost.id %>/comments/?_method=DELETE">
+      <input <% if(user.id !== onePost.userId){ %>
+          <%= 'hidden' %>
+      <% } %> type="submit" value="Delete">
+      <input hidden value="<%= comment.id %>" name="commentId">
+    </form>
   <% }) %> 

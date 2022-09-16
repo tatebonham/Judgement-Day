@@ -149,8 +149,17 @@ router.post('/:id/comments', async (req, res)=>{
     }
 })
 // Delete /posts/:id  Delete comment on posts id
-router.delete('/:id', (req, res)=>{
-    res.send('deleting comment')
+router.delete('/:id/comments', async (req, res)=>{
+    try{
+        const deleteComments = await db.comment.destroy({
+            where:{
+                id: req.body.commentId
+            }
+        })
+        res.redirect(`/posts/${req.params.id}`)
+    }catch(err){
+        console.warn(err)
+    }
 })
 
 module.exports = router
