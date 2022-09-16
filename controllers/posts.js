@@ -2,8 +2,9 @@ const express = require('express')
 const router = express.Router()
 const db = require('../models')
 const axios = require('axios')
+const methodOverride = require('method-override')
 
-
+router.use(methodOverride('X-HTTP-Method-Override'))
 // Get posts/
 router.get('/', async (req, res)=>{
     try{
@@ -97,9 +98,22 @@ router.get('/edit/:id', async (req, res)=>{
 
 })
 // Put posts/:id  redirect to posts/:id
-router.put('/:id', (req, res)=>{
-
-    res.send('editing post')
+router.put('/:id', async (req, res)=>{
+    try{
+        console.log(req.body)
+        const newPost = await db.post.update({
+            name: req.body.name,
+            class: req.body.class,
+            race: req.body.race,
+            content: req.body.content,
+            
+        }, {where:{
+            id: req.params.id
+        }})
+        res.redirect(`/posts/${req.params.id}`)
+    }catch(err){
+        console.warn(err)
+    }
 })
 // Delete posts/:id
 router.delete('/:id', (req, res)=>{

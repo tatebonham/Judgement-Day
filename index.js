@@ -11,7 +11,7 @@ const methodOverride = require('method-override')
 app.set('view engine', 'ejs')
 
 
-app.use(methodOverride('X-HTTP-Method-Override'))
+app.use(methodOverride('_method'))
 app.use(express.static('static'))
 app.use(express.urlencoded({extended: false}))
 app.use(ejsLayouts)
