@@ -55,15 +55,22 @@ router.post('/', async (req, res)=>{
 // Get posts/:id
 router.get('/:id', async (req, res)=>{
     try{
+      const comments = await db.comment.findAll({
+        where:{
+            postId: req.params.id
+        },
+        include: [db.user]
+      })
       const onePost = await db.post.findOne({
         where:{
             id: req.params.id
         }, 
-        include: [db.user, db.comment]
+        include: [db.user]
       })
 
         res.render('posts/show.ejs',{
             onePost: onePost,
+            comments: comments,
             postId: req.params.id,
             userId: res.locals.user.id
         })
