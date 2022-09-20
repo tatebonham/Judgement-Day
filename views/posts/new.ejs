@@ -1,5 +1,8 @@
-<h1>Create a new post</h1>
-
+<% if(!user){ %>
+    <h1>Please login or sign up</h1>
+<% } else { %>
+ 
+  <h1>Create a new post</h1>
 
 <form action="/posts" method="POST">
   <div class="form-group">
@@ -36,7 +39,7 @@
     <label for="user"></label>
     <input value="<%= user.id %>" name="userId">
   </div>
-  
-  <p>If your name doesn't show up, please <a href="">sign up to be an author.</a></p>
   <input type="submit" class="btn btn-primary">
 </form>
+
+<% } %>

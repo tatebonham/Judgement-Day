@@ -68,8 +68,8 @@ router.get('/:id', async (req, res)=>{
         include: [db.user]
       })
 
-        res.render('posts/show.ejs',{
-            onePost: onePost,
+        res.render('posts/show.ejs', {
+            post: onePost,
             comments: comments,
             postId: req.params.id,
             userId: res.locals.user.id

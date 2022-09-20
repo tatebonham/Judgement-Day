@@ -1,4 +1,6 @@
-<h2>Show Specific Posts Page</h2>
+<% if(!user){ %>
+  <h1>Please login or sign up</h1>
+<% } else { %>
 
 <a href="/posts/new">Create a new post</a>
 <div class="row">
@@ -7,17 +9,17 @@
       </div>
   
         <div class="container border border-2 rounded-3">
-        <small><%= onePost.user.username %></small>
+        <small><%= post.user.username %></small>
         <h4>
-            <p><%= onePost.name %> the <%= onePost.race %> <%= onePost.class %></p>
+            <p><%= post.name %> the <%= post.race %> <%= post.class %></p>
         </h4>
-        <p class="container"><%= onePost.content %></p>
+        <p class="container"><%= post.content %></p>
         </div>  
-        <a href="/posts/edit/<%= onePost.id %>" <% if(user.id !== onePost.userId){ %>
+        <a href="/posts/edit/<%= post.id %>" <% if(user.id !== post.userId){ %>
           <%= 'hidden' %>
       <% } %> >Edit Post</a>
         <form method="POST" action="/posts/<%= postId %>/?_method=DELETE">
-          <input <% if(user.id !== onePost.userId){ %>
+          <input <% if(user.id !== post.userId){ %>
               <%= 'hidden' %>
           <% } %> type="submit" value="Delete">
         </form>
@@ -25,7 +27,7 @@
     
   </div>
   <h4>(<%= comments.length %>)Comments:</h4>
-  <form method="POST" action="/posts/<%=onePost.id%>/comments" >
+  <form method="POST" action="/posts/<%=post.id%>/comments" >
     <label for="content">Comment:</label>
     <input type="text" class="form-control" id="content" name="content">
     <input  value="<%= userId %>" name="userId">
@@ -38,10 +40,11 @@
 
   <% comments.forEach(comment =>{ %>
     <p><%= comment.content %>  <small> by <%= comment.user.username %></small></p>
-    <form method="POST" action="/posts/<%= onePost.id %>/comments/?_method=DELETE">
-      <input <% if(user.id !== onePost.userId){ %>
+    <form method="POST" action="/posts/<%= post.id %>/comments/?_method=DELETE">
+      <input <% if(user.id !== post.userId){ %>
           <%= 'hidden' %>
       <% } %> type="submit" value="Delete">
       <input hidden value="<%= comment.id %>" name="commentId">
     </form>
   <% }) %> 
+<% } %>
