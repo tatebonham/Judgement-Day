@@ -1,15 +1,18 @@
-<h2>Login Users Page</h2>
+<h2 class="mt-2">Login Users Page</h2>
 
 <% if(message){ %>
     <p><%= message %></p>
 <% } %>
 
 <form action="/users/login" method="POST">
+    <div class="form-group mt-3"></div>
     <label for="email">Email: </label>
-    <input id="email" type="email" name="email" require>
+    <input class="form-control nes-input mb-3" id="email" type="email" name="email" require>
 
     <label for="password">Password: </label>
-    <input id="password" type="password" name="password" required>
+    <input class="nes-input mb-3" id="password" type="password" name="password" required>
+    
 
-    <button type="submit">Login</button>
+    <button class="nes-btn is-primary" type="submit">Login</button>
+    </div>
 </form>
