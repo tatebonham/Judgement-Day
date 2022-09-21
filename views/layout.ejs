@@ -16,7 +16,7 @@
             <div class="container-fluid">
                 <ul class="nav">
                     <li class="navbar-brand">
-                        <a href="/posts" class="nav-link">Judgment Day</a>
+                        <a href="/" class="nav-link">Judgment Day</a>
                     </li>
                 </ul>
             </div>
@@ -24,10 +24,13 @@
                 <ul class="nav">
                     <% if(user){ %>
                         <li class="nav-item">
-                            <a class="nav-link" href="/posts/new">Create a new post</a>
+                            <a class="nav-link" href="/posts">All Posts</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/users/posts">My Posts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/posts/new">Create a new post</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/users/logout">Logout</a>
