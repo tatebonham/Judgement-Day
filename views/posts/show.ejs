@@ -37,7 +37,7 @@
   <h4>(<%= comments.length %>)Comments</h4>
   <form method="POST" action="/posts/<%=post.id%>/comments" class="d-flex">
     <label for="content">Add A Comment:</label>
-    <input type="text" class="form-control nes-input" id="content" name="content">
+    <input type="text" class="form-control nes-input bg-opacity-10 bg-secondary" id="content" name="content">
     <input hidden value="<%= userId %>" name="userId">
     <input hidden value="<%= postId %>" name="postId">
     <button type="submit" class="nes-btn is-primary d-flex flex-row-reverse">Post</button>
