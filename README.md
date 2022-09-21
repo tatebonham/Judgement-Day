@@ -1,4 +1,4 @@
-# Judgement-Day
+# Judgment-Day
 
 Unsure about your new DnD character? Whether it's the name or the stats that have you worried, have no fear! Welcome to Judgement Day, the social media forum to see what other players think about your new character's attributes.
 
