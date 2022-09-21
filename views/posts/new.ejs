@@ -1,5 +1,15 @@
 <% if(!user){ %>
+  <div>
     <h1>Please login or sign up</h1>
+  </div>
+    <div class="d-grid gap-2">
+      <a class="btn btn-primary" href="/users/login" role="button" 
+      style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
+      Login</a>
+      <a class="btn btn-primary" href="/users/new" role="button"
+      style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
+      Signup</a>
+    </div>
 <% } else { %>
  
   <h1>Create a new post</h1>

@@ -1,5 +1,17 @@
+<% if(!user){ %>
+  <div>
+    <h1>Please login or sign up</h1>
+  </div>
+  <div class="d-grid gap-2">
+    <a class="btn btn-primary" href="/users/login" role="button" 
+    style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
+    Login</a>
+    <a class="btn btn-primary" href="/users/new" role="button"
+    style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
+    Signup</a>
+  </div>
+<% } else if(onePost.userId == user.id){ %>
 <h2>Edit Posts Page</h2>
-
 <form method="POST" action="/posts/<%= postId %>/?_method=PUT">
   <div class="form-group">
     <label for="name">Name: </label>
@@ -39,3 +51,6 @@
   <p>If your name doesn't show up, please <a href="">sign up to be an author.</a></p>
   <input type="submit" class="btn btn-primary">
 </form>
+<% } else{ %>
+    <h1>You do not have access to editing this post.</h1>
+<% } %>
