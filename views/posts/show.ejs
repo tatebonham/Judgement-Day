@@ -21,14 +21,16 @@
         </h4>
         <p class="container"><%= post.content %></p>
         </div>  
-        <a href="/posts/edit/<%= post.id %>" <% if(user.id !== post.userId){ %>
-          <%= 'hidden' %>
-      <% } %> >Edit Post</a>
-        <form method="POST" action="/posts/<%= postId %>/?_method=DELETE">
-          <input <% if(user.id !== post.userId){ %>
-              <%= 'hidden' %>
-          <% } %> type="submit" value="Delete">
-        </form>
+        <div class="d-flex p-2 flex-row-reverse">
+          <form method="POST" action="/posts/<%= postId %>/?_method=DELETE">
+            <input class="nes-btn is-error" <% if(user.id !== post.userId){ %>
+                <%= 'hidden' %>
+            <% } %> type="submit" value="Delete">
+          </form>
+          <a class="nes-btn is-primary" href="/posts/edit/<%= post.id %>" <% if(user.id !== post.userId){ %>
+            <%= 'hidden' %>
+        <% } %> >Edit Post</a>
+        </div>
     </div>
     
   </div>
@@ -47,7 +49,7 @@
   <% comments.forEach(comment =>{ %>
     <p><%= comment.content %>  <small> by <%= comment.user.username %></small></p>
     <form method="POST" action="/posts/<%= post.id %>/comments/?_method=DELETE">
-      <input <% if(user.id !== comment.userId){ %>
+      <input class="nes-btn is-error" <% if(user.id !== comment.userId){ %>
           <%= 'hidden' %>
       <% } %> type="submit" value="Delete">
       <input hidden value="<%= comment.id %>" name="commentId">
