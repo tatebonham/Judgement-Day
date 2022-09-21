@@ -16,16 +16,16 @@
             <div class="container-fluid">
                 <ul class="nav">
                     <li class="navbar-brand">
-                        <a href="/" class="nav-link">Judgement Day</a>
+                        <a href="/posts" class="nav-link">Judgment Day</a>
                     </li>
                 </ul>
             </div>
             <div class="container-fluid d-flex flex-row-reverse">
                 <ul class="nav">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/posts">All Posts</a>
-                        </li>
                     <% if(user){ %>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/posts/new">Create a new post</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/users/posts">My Posts</a>
                         </li>
