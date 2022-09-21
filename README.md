@@ -11,16 +11,16 @@ If you are unsure about something regarding your new character you will can post
 - https://judgement-day-tatebonham.koyeb.app/
 
 ### Installation Instructions
-In your terminal, go to the cloned repo and run:
+1. In your terminal, go to the cloned repo and run:
 - npm -install
-Once that is run, still in your terminal run:
+2. Once that is run, still in your terminal run:
 - touch .env
-In your .env please input the variable below but replace the hashes with your desired value.
+3. In your .env please input the variable below but replace the hashes with your desired value.
 - ENC_SECRET='############'
-Create your database and run sequelize in your terminal with the lines below.
+4. Create your database and run sequelize in your terminal with the lines below.
 - createdb judgement_day 
 - sequelize db:migrate
-You are all set! Run nodemon and use localhost:3000 in your browser.
+5. You are all set! Run nodemon and use localhost:3000 in your browser.
 
 ### API
 
