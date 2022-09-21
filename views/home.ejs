@@ -1,4 +1,10 @@
-<h2>Home Page</h2>
+<div class="d-flex justify-content-center mt-2">
+    <% if(!user){ %>
+        <h2>Welcome to Judgment Day!</h2>
+    <% } else{ %>
+        <h2>Hello there, <%= user.username %>!</h2>
+    <% } %>
+</div>
 
 <div class="d-grid gap-2">
     <% if(!user){ %>
@@ -9,14 +15,14 @@
         style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
         Signup</a>
     <% } else { %>
-    <a class="btn btn-primary" href="/users/posts" role="button"
-    style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
-    My Posts</a>
-    <% } %>
-    <a class="btn btn-primary" href="/posts" role="button"
-    style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
-    All Posts</a>
-    <a class="btn btn-primary" href="/posts/new" role="button"
-    style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
-    Create A New Post</a>
+        <a class="btn btn-primary" href="/posts" role="button"
+        style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
+        All Posts</a>
+        <a class="btn btn-primary" href="/users/posts" role="button"
+        style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
+        My Posts</a>
+        <% } %>
+        <a class="btn btn-primary" href="/posts/new" role="button"
+        style="--bs-btn-padding-y: 2rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: 2rem;">
+        Create A New Post</a>
 </div>

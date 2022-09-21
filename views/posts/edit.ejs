@@ -11,16 +11,18 @@
     Signup</a>
   </div>
 <% } else if(onePost.userId == user.id){ %>
-<h2 class="mt-1">Edit Your Post</h2>
+
+<h2 class="mt-2">Edit Your Post</h2>
+
 <form method="POST" action="/posts/<%= postId %>/?_method=PUT">
-  <div class="form-group">
+  <div class="form-group mt-3">
     <label for="name">Name: </label>
     <input value="<%=onePost.name%>" type="text" class="form-control nes-input" id="name" name="name" required>
   </div>
 
-  <div class="form-group nes-select">
+  <div class="form-group nes-select mt-3">
     <label for="race">Race: </label>
-    <select name="race" id="race" class="form-control" required>
+    <select name="race" id="race" class="form-control " required>
       <option value="<%=onePost.race%>" disabled selected hidden><%=onePost.race%></option>
       <% for(let i = 0; i<races.length; i++) { %>
         <option value="<%= races[i].name %>"><%= races[i].name %></option>
@@ -28,7 +30,7 @@
     </select>
   </div>
 
-  <div class="form-group nes-select">
+  <div class="form-group nes-select mt-3">
     <label for="class">Class: </label>
     <select name="class" id="class" class="form-control" required>
       <option value="<%=onePost.class%>" disabled selected hidden><%=onePost.class%></option>
@@ -38,7 +40,7 @@
     </select>
   </div>
   
-  <div class="form-group">
+  <div class="form-group mt-3">
     <label for="content">Content</label>
     <textarea type="text" class="form-control nes-textarea" id="content" name="content" required><%=onePost.content%></textarea>
   </div>
