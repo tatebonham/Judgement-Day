@@ -1,11 +1,11 @@
-<div class="row">
-    <div class="col-sm-10">
+<div class="row mt-1 mb-1">
+    <div class="col-sm-15 ">
       <div class="row">
       </div>
   
     <% for(let i = 0; i < posts.length; i++ ){ %>
-        <div class="container border border-2 rounded-3">
-        <small><%= user.username %></small>
+        <div class="nes-container is-dark with-title is-centered is-rounded mt-3">
+        <p class="title"><%= user.username %></p>
         <h4>
             <p><%= posts[i].name %> the <%= posts[i].race %> <%= posts[i].class %></p>
         </h4>
