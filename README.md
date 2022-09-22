@@ -13,11 +13,11 @@ If you are unsure about something regarding your new character you will can post
 ### Installation Instructions
 1. In your terminal, go to the cloned repo and run:
 - npm -install
-2. Once that is run, still in your terminal run:
+2. Once that is done, still in your terminal run:
 - touch .env
-3. In your .env please input the variable below but replace the hashes with your desired value.
+3. In your .env please insert the variable below while replacing the hashes with your desired value.
 - ENC_SECRET='############'
-4. Create your database and run sequelize in your terminal with the lines below.
+4. Create your database and migrate it with sequelize in your terminal by running:
 - createdb judgement_day 
 - sequelize db:migrate
 5. You are all set! Run nodemon and use localhost:3000 in your browser.
